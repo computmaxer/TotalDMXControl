@@ -1,0 +1,11 @@
+﻿<Window x:Class="Total_DMX_Control_WPF.Views.ChannelSliders"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ChannelSliders" Height="893" Width="635" Closing="Window_Closing_1" SizeChanged="Window_SizeChanged_1">
+    <Grid>
+        <Button Content="Clear All Sliders" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Click="Button_Click_1"/>
+        <Button Content="Flush HTP" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Width="100" Click="Button_Click_2" RenderTransformOrigin="0.27,-17.3"/>
+        <Canvas Name="cnv_sliders" HorizontalAlignment="Left" Height="834" Margin="0,25,0,0" VerticalAlignment="Top" Width="634"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,118 @@
+﻿<Window x:Class="Total_DMX_Control_WPF.EffectsDesk"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:my="clr-namespace:Total_DMX_Control_WPF"
+        Title="EffectsDesk" Height="700" Width="970" Background="#FF030303" Name="EffectDesk" KeyDown="EffectDesk_KeyDown" KeyUp="EffectDesk_KeyUp" Closing="EffectDesk_Closing">
+    <Window.InputBindings>
+        <KeyBinding Key="B" Modifiers=""></KeyBinding>
+    </Window.InputBindings>
+    <Grid Name="EffectDeskGrid" Width="940">
+        <GroupBox Header="PARS" Height="320" HorizontalAlignment="Left" Margin="12,12,0,0" Name="groupBox1" VerticalAlignment="Top" Width="260" Foreground="White">
+            <Grid Height="291" Name="pars" Width="250" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <!-- Buttons -->
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" x:Name="par01" Click="btn_par_effect_Click" Label="Bounce --&gt;" Lit="False" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,6,0,0" x:Name="par02" Click="btn_par_effect_Click" Label="Bounce --&gt;&lt;--" Lit="False" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,6,0,0" x:Name="par03" Click="btn_par_effect_Click" Label="RGB Random" Lit="False" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,62,0,0" x:Name="par04" Click="btn_par_effect_Click" Label="Random 1 Light" Lit="False" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,62,0,0" x:Name="par05" Click="btn_par_effect_Click" Label="Random 2 Lights" Lit="False" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,62,0,0" x:Name="par06" Click="btn_par_effect_Click" Label="Random 3 Lights" Lit="False" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,118,0,0" x:Name="par07" Click="btn_par_effect_Click" Label="Zach's Bounce" Lit="False" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,118,0,0" x:Name="par08" Click="btn_par_effect_Click" Label="ALL  Blink" Lit="False" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,118,0,0" x:Name="par09" Click="btn_par_effect_Click" Label="Loading Bar" Lit="False" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,174,0,0" x:Name="par10" Click="btn_par_effect_Click" Label="Every Other" Lit="False" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,174,0,0" x:Name="par11" Click="btn_par_effect_Click" Label="L/R" Lit="False" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,174,0,0" x:Name="par12" Click="btn_par_effect_Click" Label="L&amp;R Random" Lit="False" />
+                <!-- End Buttons -->
+                <Slider Height="179" HorizontalAlignment="Left" Margin="214,45,0,0" Name="slider_parlevel" VerticalAlignment="Top" Width="37" Orientation="Vertical" Maximum="255" Interval="10" IsDirectionReversed="False" LargeChange="10" SmallChange="1" TickFrequency="17" TickPlacement="BottomRight" Value="255" ValueChanged="slider_parlevel_ValueChanged" />
+                <Label Content="255" Height="28" HorizontalAlignment="Left" Margin="210,11,0,0" Name="lbl_parlevel" VerticalAlignment="Top" Foreground="Lime" Width="36" FontSize="14" FontWeight="Bold" FontFamily="Arial" />
+                <Label Content="Level" FontSize="12" Foreground="White" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="207,235,0,0" Name="label2" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="39" />
+                <my:SoloSuppressButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,230,0,0" x:Name="par_solo_suppress" Label="Solo" LitLeft="False" LitRight="False" Click="par_solo_suppress_Click" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="LED Pars" Height="311" Margin="10,338,0,0" Name="groupBox2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="330" Foreground="White">
+            <Grid Height="267" HorizontalAlignment="Center" Name="leds" VerticalAlignment="Center" Width="315">
+                <!-- Buttons -->
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" x:Name="led01" Click="btn_led_effect_Click" Label="RGB" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,6,0,0" x:Name="led02" Click="btn_led_effect_Click" Label="ROG ABP" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,6,0,0" x:Name="led03" Click="btn_led_effect_Click" Label="E/O  RGB" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,6,0,0" x:Name="led04" Click="btn_led_effect_Click" Label="Color March" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,62,0,0" x:Name="led05" Click="btn_led_effect_Click" Label="HARD Random" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,62,0,0" x:Name="led06" Click="btn_led_effect_Click" Label="HARD RGB" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,62,0,0" x:Name="led07" Click="btn_led_effect_Click" Label="Random 1 Light" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,62,0,0" x:Name="led08" Click="btn_led_effect_Click" Label="Double Blink" />
+                <my:DoubleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,147,0,0" x:Name="led_r_bump" Label="R" LitLeft="False" LitRight="False" MouseRightButtonDown="led_r_bump_MouseRightButtonDown" />
+                <my:DoubleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,147,0,0" x:Name="led_g_bump" Label="G" LitLeft="False" LitRight="False" MouseRightButtonDown="led_g_bump_MouseRightButtonDown" />
+                <my:DoubleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,147,0,0" x:Name="led_b_bump" Label="B" LitLeft="False" LitRight="False" MouseRightButtonDown="led_b_bump_MouseRightButtonDown" />
+                <my:DoubleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,147,0,0" x:Name="led_w_bump" Label="W" LitLeft="False" LitRight="False" MouseRightButtonDown="led_w_bump_MouseRightButtonDown" />
+                <!-- End Buttons -->
+                <my:SoloSuppressButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,203,0,0" x:Name="led_solo_suppress" Label="Solo" LitLeft="False" LitRight="False" Click="led_solo_suppress_Click" />
+                <Slider Height="179" HorizontalAlignment="Left" Margin="274,40,0,0" Name="slider_ledlevel" VerticalAlignment="Top" Width="37" Orientation="Vertical" Maximum="255" Interval="10" IsDirectionReversed="False" LargeChange="10" SmallChange="1" TickFrequency="17" TickPlacement="BottomRight" Value="255" ValueChanged="slider_ledlevel_ValueChanged" />
+                <Label Content="255" Height="28" HorizontalAlignment="Left" Margin="270,6,0,0" Name="lbl_ledlevel" VerticalAlignment="Top" Foreground="Lime" Width="36" FontSize="14" FontWeight="Bold" FontFamily="Arial" />
+                <Label Content="Level" FontSize="12" Foreground="White" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="267,225,0,0" Name="label4" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="39" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Colorstrips" Height="311" Margin="352,338,0,0" Name="groupBox3" VerticalAlignment="Top" HorizontalAlignment="Left" Width="330" Foreground="White">
+            <Grid Height="267" HorizontalAlignment="Center" Name="colorstrips" VerticalAlignment="Center" Width="315">
+                <!-- Buttons -->
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" x:Name="cs01" Click="btn_cs_effect_Click" Label="RGB" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,6,0,0" x:Name="cs02" Click="btn_cs_effect_Click" Label="ROG ABP" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,6,0,0" x:Name="cs03" Click="btn_cs_effect_Click" Label="E/O  RGB" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,6,0,0" x:Name="cs04" Click="btn_cs_effect_Click" Label="Color March" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,62,0,0" x:Name="cs05" Click="btn_cs_effect_Click" Label="HARD Random" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,62,0,0" x:Name="cs06" Click="btn_cs_effect_Click" Label="HARD RGB" />
+                <my:DoubleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,147,0,0" x:Name="cs_r_bump" Label="R" LitLeft="False" LitRight="False" MouseRightButtonDown="cs_r_bump_MouseRightButtonDown" />
+                <my:DoubleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,147,0,0" x:Name="cs_g_bump" Label="G" LitLeft="False" LitRight="False" MouseRightButtonDown="cs_g_bump_MouseRightButtonDown" />
+                <my:DoubleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,147,0,0" x:Name="cs_b_bump" Label="B" LitLeft="False" LitRight="False" MouseRightButtonDown="cs_b_bump_MouseRightButtonDown" />
+                <my:DoubleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,147,0,0" x:Name="cs_w_bump" Label="W" LitLeft="False" LitRight="False" MouseRightButtonDown="cs_w_bump_MouseRightButtonDown" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,62,0,0" x:Name="cs_enable" Label="Enabled" Lit="False" Click="cs_enable_Click" />
+                <!-- End Buttons -->
+                <my:SoloSuppressButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,203,0,0" x:Name="cs_solo_suppress" Label="Solo" LitLeft="False" LitRight="False" Click="cs_solo_suppress_Click" />
+                <Slider Height="179" HorizontalAlignment="Left" Margin="274,40,0,0" Name="slider_cslevel" VerticalAlignment="Top" Width="37" Orientation="Vertical" Maximum="255" Interval="10" IsDirectionReversed="False" LargeChange="10" SmallChange="1" TickFrequency="17" TickPlacement="BottomRight" Value="255" ValueChanged="slider_cslevel_ValueChanged" />
+                <Label Content="255" Height="28" HorizontalAlignment="Left" Margin="270,6,0,0" Name="lbl_cslevel" VerticalAlignment="Top" Foreground="Lime" Width="36" FontSize="14" FontWeight="Bold" FontFamily="Arial" />
+                <Label Content="Level" FontSize="12" Foreground="White" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="267,225,0,0" Name="label5" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="39" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Strobe" Height="320" Margin="284,12,0,0" Name="groupBox4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150" Foreground="White">
+            <Grid Height="300" HorizontalAlignment="Center" Name="strobe" VerticalAlignment="Center" Width="138">
+                <Slider Height="166" HorizontalAlignment="Left" Margin="76,40,0,0" Name="slider_strobeintensity" VerticalAlignment="Top" Width="37" Orientation="Vertical" Maximum="255" Interval="10" IsDirectionReversed="False" LargeChange="10" SmallChange="1" TickFrequency="17" TickPlacement="BottomRight" Value="255" ValueChanged="slider_strobeintensity_ValueChanged" />
+                <Label Content="255" Height="28" HorizontalAlignment="Left" Margin="70,6,0,0" Name="lbl_strobeintensity" VerticalAlignment="Top" Foreground="Lime" Width="36" FontSize="14" FontWeight="Bold" FontFamily="Arial" />
+                <Label Content="Intensity" FontSize="12" Foreground="White" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="70,200,0,0" Name="label6" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="58" />
+                <Slider Height="166" HorizontalAlignment="Left" Margin="20,40,0,0" Name="slider_strobespeed" VerticalAlignment="Top" Width="37" Orientation="Vertical" Maximum="255" Interval="10" IsDirectionReversed="False" LargeChange="10" SmallChange="1" TickFrequency="17" TickPlacement="BottomRight" Value="255" ValueChanged="slider_strobespeed_ValueChanged" />
+                <Label Content="255" Height="28" HorizontalAlignment="Left" Margin="13,6,0,0" Name="lbl_strobespeed" VerticalAlignment="Top" Foreground="Lime" Width="36" FontSize="14" FontWeight="Bold" FontFamily="Arial" />
+                <Label Content="Speed" FontSize="12" Foreground="White" Height="28" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Margin="8,200,0,0" Name="label7" VerticalAlignment="Top" VerticalContentAlignment="Center" Width="49" />
+                <Button Content="OFF" Height="49" HorizontalAlignment="Left" Margin="6,235,0,0" Name="btn_strobe_enable" VerticalAlignment="Top" Width="120" Click="btn_strobe_enable_Click" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Other Effects" Foreground="White" Height="320" HorizontalAlignment="Left" Margin="446,11,0,0" Name="groupBox5" VerticalAlignment="Top" Width="360">
+            <Grid Height="300" HorizontalAlignment="Center" Name="other" VerticalAlignment="Center" Width="340">
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="6,6,0,0" x:Name="disco" Label="Disco Ball" Click="disco_Click" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,6,0,0" x:Name="mines" Label="MINEs" Click="mines_Click" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="138,6,0,0" x:Name="ropelight_blink" Label="Rope Blink" Click="ropelight_blink_Click" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,6,0,0" x:Name="revo_sound" Label="Revo Sound" Click="revo_sound_Click" />
+                <my:SingleBumpButton HorizontalAlignment="Left" VerticalAlignment="Top" Margin="270,6,0,0" x:Name="vue_sound" Label="Vues Sound" Click="vue_sound_Click" />
+                <Button Content="General Cancel" Height="50" HorizontalAlignment="Left" Margin="6,236,0,0" Name="btn_general_cancel" VerticalAlignment="Top" Width="324" FontSize="18" Click="btn_general_cancel_Click" />
+                <Button Content="Global Pause" FontSize="14" Height="50" HorizontalAlignment="Left" Margin="180,124,0,0" Name="btn_global_pause" VerticalAlignment="Top" Width="150" Click="btn_global_pause_Click" />
+                <Button Content="Unsuppress All" FontSize="14" Height="50" HorizontalAlignment="Left" Margin="6,124,0,0" Name="btn_unsuppressall" VerticalAlignment="Top" Width="150" Click="btn_unsuppressall_Click" />
+                <Button Content="Blackout" FontSize="14" Height="50" HorizontalAlignment="Left" Margin="180,180,0,0" Name="btn_blackout" VerticalAlignment="Top" Width="150" Click="btn_blackout_Click" />
+                <Button Content="HTP Flush" FontSize="14" Height="50" HorizontalAlignment="Left" Margin="6,180,0,0" Name="btn_htpflush" VerticalAlignment="Top" Width="150" Click="btn_htpflush_Click" />
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Tap Sync" Foreground="White" Height="311" HorizontalAlignment="Left" Margin="688,338,0,0" Name="groupBox6" VerticalAlignment="Top" Width="240">
+            <Grid Height="280" Name="tapsync" Width="230">
+                <Button Content="Switch Rates" FontSize="14" Height="50" HorizontalAlignment="Left" Margin="12,154,0,0" Name="btn_switch" VerticalAlignment="Top" Width="100" Click="btn_switch_Click" />
+                <Button Content="Make BG x2" FontSize="14" Height="50" HorizontalAlignment="Left" Margin="118,154,0,0" Name="btn_x2" VerticalAlignment="Top" Width="100" Click="btn_x2_Click" />
+                <Label Content="100.00" FontFamily="Arial" FontSize="14" FontWeight="Bold" Foreground="Lime" Height="28" HorizontalAlignment="Left" Margin="12,120,0,0" Name="lbl_BG" VerticalAlignment="Top" Width="60" />
+                <Label Content="100.00" FontFamily="Arial" FontSize="14" FontWeight="Bold" Foreground="Lime" Height="28" HorizontalAlignment="Left" Margin="12,90,0,0" Name="lbl_primary" VerticalAlignment="Top" Width="60" />
+                <RadioButton Content="Rate" Height="16" HorizontalAlignment="Right" Margin="0,95,112,0" Name="rad_rate" VerticalAlignment="Top" IsChecked="True" Foreground="White" />
+                <RadioButton Content="BG Rate" Height="16" HorizontalAlignment="Left" Margin="78,0,0,139" Name="rad_BG" VerticalAlignment="Bottom" Foreground="White" />
+                <StackPanel Height="66" HorizontalAlignment="Left" Margin="12,12,0,0" Name="tapsyncpanel" VerticalAlignment="Top" Width="206" Background="DarkRed">
+                    <Label Content="BPS: " Height="33" Name="lbl_BPS" Foreground="White" Width="120" FontSize="14" VerticalAlignment="Center" />
+                    <Label Content="Rate: " Height="33" Name="lbl_rate" Foreground="White" Width="120" FontSize="14" VerticalAlignment="Center" />
+                </StackPanel>
+                <Button Content="TAP SYNC (/)" FontSize="14" Height="50" HorizontalAlignment="Left" Margin="12,210,0,0" Name="btn_tap" VerticalAlignment="Top" Width="206" Click="btn_tap_Click" />
+            </Grid>
+        </GroupBox>
+        <my:SingleBumpButton Content="LED Color Fade" HorizontalAlignment="Left" Margin="827,73,0,0" VerticalAlignment="Top" Width="99" Height="41" x:Name="ledColorFade" Click="ledColorFade_Click"/>
+    </Grid>
+    
+</Window>

@@ -1,0 +1,77 @@
+﻿<Window x:Class="Total_DMX_Control_WPF.RoutinePlayerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="Routine Player" Height="543" Width="787" KeyDown="Window_KeyDown" KeyUp="Window_KeyUp">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="418*" />
+            <RowDefinition Height="44" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="283" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="446*" />
+        </Grid.ColumnDefinitions>
+        <ListBox Height="437" HorizontalAlignment="Left" Name="lbxRoutines" VerticalAlignment="Top" Width="283" MouseDoubleClick="lbxRoutines_MouseDoubleClick" Margin="0,23,0,0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}" Width="230" />
+                        <CheckBox IsChecked="{Binding Play, Mode=TwoWay}" Margin="5,0,0,0">Play</CheckBox>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Add" Height="23" HorizontalAlignment="Right" Margin="0,11,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" Grid.Row="1" />
+        <Button Content="Delete" Height="23" HorizontalAlignment="Left" Margin="0,11,0,0" Name="btnDeleteRoutine" VerticalAlignment="Top" Width="75" Click="btnDeleteRoutine_Click" Grid.Row="1" />
+        <Label Content="Routines" Height="28" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" Width="65" FontWeight="Bold" />
+        <GroupBox Grid.Column="2" Header="Live Fixture Attribute Override" Height="446" HorizontalAlignment="Left" Name="groupBox1" VerticalAlignment="Top" Width="458" Margin="1,14,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="272" />
+                    <ColumnDefinition Width="6" />
+                    <ColumnDefinition Width="168" />
+                </Grid.ColumnDefinitions>
+                <ListBox Height="163" HorizontalAlignment="Left" Margin="7,18,0,0" Name="lbxPresets" VerticalAlignment="Top" Width="265" SelectionChanged="lbxPresets_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Height="20" Width="236" Margin="4,4,0,0" TextWrapping="Wrap" />
+                                <Image Source="/Total%20DMX%20Control%20WPF;component/Media/dialog-close.png" Width="16" Height="16" Margin="0,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" MouseUp="DeletePreset_MouseUp"></Image>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Content="INACTIVE" Height="47" HorizontalAlignment="Left" Margin="26,18,0,0" Name="btnActive" VerticalAlignment="Top" Width="83" Grid.Column="2" Click="btnActive_Click" />
+                <ListBox Height="324" HorizontalAlignment="Left" Margin="0,92,0,0" Name="lbxFixturesToAffect" VerticalAlignment="Top" Width="162" Grid.Column="2">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <CheckBox IsChecked="{Binding Path=IsAffected, Mode=TwoWay}" Height="19" Width="15" VerticalAlignment="Center" Margin="8,6,0,0" />
+                                <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Height="20" Width="115" Margin="8,4,0,0" TextWrapping="Wrap" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Label Content="Fixtures to Affect" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="0,70,0,0" Name="label2" VerticalAlignment="Top" Width="133" Grid.Column="2" />
+                <Label Content="Presets" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="7,-4,0,0" Name="label3" VerticalAlignment="Top" Width="133" />
+                <ListBox Height="175" HorizontalAlignment="Left" Margin="7,202,0,0" Name="lbxAttributeSettings" VerticalAlignment="Top" Width="265">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Height="25">
+                                <CheckBox IsChecked="{Binding Path=Active, Mode=TwoWay}" Height="19" Width="15" VerticalAlignment="Center" Margin="8,6,0,0" />
+                                <TextBlock Text="{Binding Type}" VerticalAlignment="Center" Height="20" Width="115" Margin="8,4,0,0" TextWrapping="Wrap" />
+                                <xctk:IntegerUpDown Value="{Binding Value, Mode=TwoWay}" Height="20" Width="45" VerticalAlignment="Center" Margin="8,0,0,0" FormatString="N0" Increment="1" Maximum="255" Minimum="0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <xctk:WatermarkTextBox Watermark="Enter name for preset" Height="23" HorizontalAlignment="Left" Margin="7,394,0,0" Name="tbxPresetName" VerticalAlignment="Top" Width="162" />
+                <Button Content="Save Preset" Height="23" HorizontalAlignment="Right" Margin="0,393,0,0" Name="btnSavePreset" VerticalAlignment="Top" Width="97" Click="btnSavePreset_Click" />
+                <Label Content="Attribute Settings" FontWeight="Bold" Height="28" HorizontalAlignment="Left" Margin="7,179,0,0" Name="label4" VerticalAlignment="Top" Width="133" />
+                <Button Content="Pulse" Height="47" HorizontalAlignment="Left" Margin="125,18,0,0" Name="btnPulse" VerticalAlignment="Top" Width="37" Grid.Column="2" MouseLeftButtonDown="btnPulse_MouseLeftButtonDown" MouseLeftButtonUp="btnPulse_MouseLeftButtonUp" />
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

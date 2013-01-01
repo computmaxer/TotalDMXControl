@@ -1,0 +1,187 @@
+﻿<Window x:Class="Total_DMX_Control_WPF.RoutineBuilder"
+        x:ClassModifier="public"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:Total_DMX_Control_WPF"
+        xmlns:System="clr-namespace:System;assembly=mscorlib"
+
+        Title="Subroutine Builder" Height="818" Width="1004" Closing="Window_Closing" Name="wdwRoutineBuilder">
+    <Window.Resources>
+        <DataTemplate x:Key="StepListItemTemplate">
+            <StackPanel Orientation="Horizontal" Height="40">
+                <CheckBox IsChecked="{Binding Visible}" VerticalAlignment="Center" Width="25" Height="25">
+                    <CheckBox.Template>
+                        <ControlTemplate TargetType="CheckBox">
+                            <StackPanel Orientation="Horizontal">
+                                <Image x:Name="_image" Source="/Total%20DMX%20Control%20WPF;component/Media/invisible_25.png"/>
+                                <ContentControl Content="{Binding Content}"/>
+                            </StackPanel>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="_image" Property="Source" Value="/Total%20DMX%20Control%20WPF;component/Media/visible_25.png"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </CheckBox.Template>
+                </CheckBox>
+                <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Width="150" Margin="8,0,0,0" />
+                <TextBlock Text="{Binding Duration}" Height="20" Width="70" VerticalAlignment="Center" Margin="8,0,0,0" />
+                <TextBlock Text="{Binding RepeatCount}"  Height="20" Width="70" VerticalAlignment="Center" Margin="8,0,0,0" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="StepListSelectedTemplate">
+            <StackPanel Orientation="Horizontal" Height="40">
+                <CheckBox IsChecked="{Binding Visible}" VerticalAlignment="Center" Width="25" Height="25" IsEnabled="False">
+                    <CheckBox.Template>
+                        <ControlTemplate TargetType="CheckBox">
+                            <StackPanel Orientation="Horizontal">
+                                <Image x:Name="_image" Source="/Total%20DMX%20Control%20WPF;component/Media/invisible_25.png"/>
+                                <ContentControl Content="{Binding Content}"/>
+                            </StackPanel>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="_image" Property="Source" Value="/Total%20DMX%20Control%20WPF;component/Media/visible_25.png"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </CheckBox.Template>
+                </CheckBox>
+                <TextBox Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Center" Width="150" Margin="8,0,0,0" />
+                <TextBox Text="{Binding Duration, Mode=TwoWay}" Height="20" Width="70" VerticalAlignment="Center" Margin="8,0,0,0" />
+                <TextBox Text="{Binding RepeatCount, Mode=TwoWay}"  Height="20" Width="70" VerticalAlignment="Center" Margin="8,0,0,0" />
+                <Image Source="/Total%20DMX%20Control%20WPF;component/Media/dialog-close.png" Width="16" Height="16" Margin="25,0,0,0" HorizontalAlignment="Right" VerticalAlignment="Center" MouseUp="DeleteStep_MouseUp"></Image>
+            </StackPanel>
+        </DataTemplate>
+        <ControlTemplate x:Key="StepListInitialTemplate">
+            <Label HorizontalAlignment="Center" FontStyle="Italic" Grid.Column="3" Margin="80,5,5,5" Grid.Row="1" Width="211" Background="Transparent">Draw a shape to add items to the list!</Label>
+        </ControlTemplate>
+        <Style TargetType="{x:Type ListBoxItem}" x:Key="StepListContainerStyle">
+            <Setter Property="ContentTemplate" Value="{StaticResource StepListItemTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="ContentTemplate" Value="{StaticResource StepListSelectedTemplate}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        
+        <DataTemplate x:Key="ReferencePointListItemTemplate">
+            <StackPanel Orientation="Horizontal" Height="40">
+                <CheckBox IsChecked="{Binding Visible}" VerticalAlignment="Center"></CheckBox>
+                <TextBlock Text="{Binding Name}" VerticalAlignment="Center" Margin="8,0,0,0" />
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="ReferencePointSelectedTemplate">
+            <StackPanel Orientation="Horizontal" Height="40">
+                <CheckBox IsChecked="{Binding Visible}" VerticalAlignment="Center" IsEnabled="False"></CheckBox>
+                <TextBox Text="{Binding Name, Mode=TwoWay}" VerticalAlignment="Center" Margin="8,0,0,0" />
+            </StackPanel>
+        </DataTemplate>
+        <Style TargetType="{x:Type ListBoxItem}" x:Key="ReferencePointContainerStyle">
+            <Setter Property="ContentTemplate" Value="{StaticResource ReferencePointListItemTemplate}" />
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="ContentTemplate" Value="{StaticResource ReferencePointSelectedTemplate}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <DataTemplate DataType="{x:Type local:RoutineFixture}">
+            <DockPanel>
+                <Canvas Height="60" Width="107" DockPanel.Dock="Left">
+                    <Canvas.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF969696" Offset="0" />
+                            <GradientStop Color="#FF767676" Offset="1" />
+                            <GradientStop Color="#FFA3A3A3" Offset="0.448" />
+                        </LinearGradientBrush>
+                    </Canvas.Background>
+                    <TextBlock Text="{Binding Name}" />
+                </Canvas>
+                <ListBox Width="799" Background="#FFEFEFEF">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <WrapPanel Height="60" IsItemsHost="True">
+                            </WrapPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </DockPanel>
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid Width="967" Height="779">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="49" />
+            <RowDefinition Height="544" />
+            <RowDefinition Height="4" />
+            <RowDefinition Height="180" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="11" />
+            <ColumnDefinition Width="544" />
+            <ColumnDefinition Width="11" />
+            <ColumnDefinition Width="416*" />
+        </Grid.ColumnDefinitions>
+        <ToolBar Height="40" HorizontalAlignment="Left" Name="toolBar1" VerticalAlignment="Top" Width="298" Margin="10,0,0,0" Grid.ColumnSpan="2" IsEnabled="True" ItemsSource="{Binding}">
+            <ToggleButton Name="btnToolbarMove" Click="btnToolbar_Click" Width="24" Height="24" ToolTip="Move Tool">
+                <Image Source="/Total%20DMX%20Control%20WPF;component/Media/move.png" Width="18" Height="18" />
+            </ToggleButton>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+            <ToggleButton Name="btnToolbarLine" Click="btnToolbar_Click" ToolTip="Draw Line">
+                <Image Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="None" FlowDirection="LeftToRight" StretchDirection="Both" Source="/Total%20DMX%20Control%20WPF;component/Media/stock_draw-line.png" />
+            </ToggleButton>
+            <ToggleButton Name="btnToolbarArc" Click="btnToolbar_Click" ToolTip="Draw Arc" IsEnabled="False">
+                <Image Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="None" FlowDirection="LeftToRight" StretchDirection="Both" Source="/Total%20DMX%20Control%20WPF;component/Media/stock_draw-arc.png" />
+            </ToggleButton>
+            <ToggleButton Name="btnToolbarCircle" Click="btnToolbar_Click" ToolTip="Draw Circle">
+                <Image Source="/Total%20DMX%20Control%20WPF;component/Media/stock_draw-circle-unfilled.png" Width="24" Height="24" />
+            </ToggleButton>
+            <ToggleButton Name="btnToolbarRectangle" Click="btnToolbar_Click" ToolTip="Draw Rectangle">
+                <Image Source="/Total%20DMX%20Control%20WPF;component/Media/stock_draw-square-unfilled.png" Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="None" FlowDirection="LeftToRight" StretchDirection="Both" />
+            </ToggleButton>
+            <ToggleButton Name="btnToolbarDot" Click="btnToolbar_Click" ToolTip="Draw Dot">
+                <Image Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="None" FlowDirection="LeftToRight" StretchDirection="Both" Source="/Total%20DMX%20Control%20WPF;component/Media/stock_draw-dot.png" />
+            </ToggleButton>
+            <ToggleButton Name="btnToolbarPolyline" Click="btnToolbar_Click" ToolTip="Draw Poly-line">
+                <Image Width="24" Height="24" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="None" FlowDirection="LeftToRight" StretchDirection="Both" Source="/Total%20DMX%20Control%20WPF;component/Media/stock_draw-polygon-45.png" />
+            </ToggleButton>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+            <ToggleButton Name="btnToolbarReferencePoint" Click="btnToolbar_Click" ToolTip="Reference Point">
+                <Canvas Width="24" Height="24" IsHitTestVisible="False">
+                    <Ellipse Canvas.Top="8" Canvas.Right="8" Height="8" HorizontalAlignment="Left" Margin="0,0,0,0" Name="ellipse2" Stroke="DarkGray" VerticalAlignment="Top" Width="8" Fill="DarkGray" StrokeThickness="1" />
+                </Canvas>
+            </ToggleButton>
+            <ToggleButton Name="btnToolbarAttrPoint" Click="btnToolbar_Click" ToolTip="Attribute Point">
+                <Canvas Width="24" Height="24" IsHitTestVisible="False">
+                    <Ellipse Canvas.Top="8" Canvas.Right="8" Height="8" HorizontalAlignment="Left" Margin="0,0,0,0" Name="ellipse1" Stroke="Red" VerticalAlignment="Top" Width="8" Fill="Black" StrokeThickness="3" />
+                </Canvas>
+            </ToggleButton>
+        </ToolBar>
+        <Button Name="btnPreviewStep" HorizontalAlignment="Right" Content="Preview Selected Step" Grid.Column="3" Margin="0,308,0,208" Width="165" Click="btnPreviewStep_Click" Grid.Row="1">
+
+        </Button>
+        <Border BorderThickness="1"  Margin="0,1,0,0" Grid.Row="1" Grid.Column="1" BorderBrush="Black" Background="Transparent">
+            <Viewbox OpacityMask="#FFBEBEBE">
+                <Canvas Height="65535" HorizontalAlignment="Left" Margin="23,48,0,0" Name="canvas1" VerticalAlignment="Top" Width="65535" MouseLeftButtonDown="canvas1_MouseLeftButtonDown" MouseMove="canvas1_MouseMove" MouseLeftButtonUp="canvas1_MouseLeftButtonUp" Background="White"></Canvas>
+            </Viewbox>
+        </Border>
+        <ListBox Height="279" HorizontalAlignment="Left" Name="lbxSteps" VerticalAlignment="Top" Width="401" Grid.Column="3" SelectionChanged="lbxSteps_SelectionChanged" ItemContainerStyle="{StaticResource StepListContainerStyle}" Grid.Row="1" Margin="0,23,0,0">
+            <ListBoxItem Template="{StaticResource StepListInitialTemplate}"  Background="#DEDEDE" Height="40" />
+        </ListBox>
+        <ListBox Height="180" HorizontalAlignment="Left" Margin="1,0,0,0" Name="lbxTimeline" VerticalAlignment="Bottom" Width="955" Grid.ColumnSpan="3" Grid.Row="3" Grid.Column="1" ItemsSource="{Binding}" SelectionChanged="lbxTimeline_SelectionChanged">
+            
+        </ListBox>
+        <Button Content="Preview Routine" Grid.Column="3" Height="40" HorizontalAlignment="Left" Margin="262,0,0,0" Name="btnPreviewRoutine" VerticalAlignment="Top" Width="139" Click="btnPreviewRoutine_Click" />
+        <Button Content="Reset Fixture" Grid.Column="3" Height="28" HorizontalAlignment="Left" Margin="111,308,0,0" Name="btnReset" VerticalAlignment="Top" Width="111" Click="btnReset_Click" Grid.Row="1" />
+        <ListBox Grid.Column="3" Grid.Row="1" Height="176" HorizontalAlignment="Left" Margin="0,368,0,0" Name="lbxReferencePoints" VerticalAlignment="Top" Width="401" ItemContainerStyle="{StaticResource ReferencePointContainerStyle}">
+        </ListBox>
+        <Label Content="Steps" Grid.Column="3" Grid.Row="1" Height="25" HorizontalAlignment="Left" Name="label1" VerticalAlignment="Top" FontWeight="Bold" />
+        <Label Content="Reference Points" FontWeight="Bold" Height="25" HorizontalAlignment="Left" Margin="0,344,0,0" Name="label2" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1" />
+        <TextBox Grid.Column="3" Height="40" HorizontalAlignment="Left" Name="tbxRoutineName" VerticalAlignment="Top" Width="256" TextChanged="tbxRoutineName_TextChanged" FontSize="24" TextAlignment="Left" FontWeight="Bold" />
+        <CheckBox IsChecked="{Binding ElementName=wdwRoutineBuilder, Path=LivePreview, Mode=TwoWay}" Content="Live Preview" Grid.Column="1" Height="16" HorizontalAlignment="Left" Margin="311,16,0,0" Name="cbxLivePreview" VerticalAlignment="Top" />
+        <Label Content="Duration" Grid.Column="3" Grid.Row="1" Height="28" HorizontalAlignment="Left" Margin="179,0,0,0" Name="label4" VerticalAlignment="Top" />
+        <Label Content="Repeat Count" Height="28" HorizontalAlignment="Right" Margin="0,0,62,0" Name="label5" VerticalAlignment="Top" Grid.Column="3" Grid.Row="1" />
+    </Grid>
+</Window>

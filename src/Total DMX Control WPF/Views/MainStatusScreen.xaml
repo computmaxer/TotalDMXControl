@@ -1,0 +1,23 @@
+<Window x:Class="Total_DMX_Control_WPF.MainStatusScreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="420" Width="690" Loaded="Window_Loaded" SizeChanged="Window_SizeChanged">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Exit"></MenuItem>
+
+            </MenuItem>
+            <MenuItem Header="_Window">
+                <MenuItem Header="_EffectsDesk" Name="mbrWindowEffectDesk" Click="mbrWindowEffectsDesk_Click"></MenuItem>
+                <MenuItem Header="_ChannelSliders" Name="mbrWindowChannelSliders" Click="mbrWindowChannelSliders_Click_1"></MenuItem>
+                <MenuItem Header="_RoutineBuilder" Name="mbrWindowRoutine" Click="mbrWindowRoutine_Click" IsEnabled="True" Visibility="Hidden"></MenuItem>
+                <MenuItem Header="_Routines" Name="mbrWindowRoutinePlayer" Click="mbrWindowRoutinePlayer_Click"></MenuItem>
+                <MenuItem Header="_FaderTest" Name="mbrWindowFaderTest" Click="mbrWindowFaderTest_Click"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Grid>
+            <Canvas Height="340" HorizontalAlignment="Left" Name="cnv_Levels" VerticalAlignment="Top" Width="678" Background="Black"></Canvas>
+        </Grid>
+    </DockPanel>
+</Window>

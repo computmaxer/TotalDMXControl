@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="Total_DMX_Control_WPF.AddFixturePopupControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="224" Width="208">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <VisualBrush x:Key="FilterHint" TileMode="None" Stretch="None" AlignmentX="Left">
+                <VisualBrush.Transform>
+                    <TranslateTransform X="5" Y="0" />
+                </VisualBrush.Transform>
+                <VisualBrush.Visual>
+                    <Grid>
+                        <TextBlock FontStyle="Italic"
+                      Foreground="Black"
+                      Background="White"
+                      Opacity="0.3"
+                      Text="Enter text to filter choices..."/>
+                    </Grid>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid Height="Auto" Width="Auto" Background="#FFEFEFEF">
+        <TextBox Height="31" HorizontalAlignment="Left" Margin="12,12,0,0" Name="tbxFixtureFilter" VerticalAlignment="Top" Width="185">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="">
+                            <Setter Property="Background" Value="{StaticResource FilterHint}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <ListBox Height="129" HorizontalAlignment="Left" Margin="12,49,0,0" Name="lbxFixturesToAdd" VerticalAlignment="Top" Width="185" ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <CheckBox IsChecked="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type ListBoxItem}}}">
+                        <CheckBox.Content>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}  {1}">
+                                        <Binding Path="Name" />
+                                        <Binding Path="StartChannel" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </CheckBox.Content>
+                    </CheckBox>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Content="Add Selected" Height="23" HorizontalAlignment="Left" Margin="93,190,0,0" Name="btnAddSelectedFixtures" VerticalAlignment="Top" Width="104" IsDefault="True" />
+        <Button Content="Cancel" Height="23" HorizontalAlignment="Left" Margin="12,190,0,0" Name="btnCancelAddFixture" VerticalAlignment="Top" Width="75" IsCancel="True" />
+    </Grid>
+</UserControl>

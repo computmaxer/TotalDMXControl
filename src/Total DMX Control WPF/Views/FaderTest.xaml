@@ -1,0 +1,12 @@
+<Window x:Class="Total_DMX_Control_WPF.FaderTest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FaderTest" Height="480" Width="506">
+    <Grid>
+        <Button Content="Start Fader 1" Height="33" HorizontalAlignment="Left" Margin="167,22,0,0" Name="startFader1" VerticalAlignment="Top" Width="95" Click="startFader1_Click" />
+        <Label Content="..." Height="28" HorizontalAlignment="Left" Margin="98,61,0,0" Name="lblFader1Time" VerticalAlignment="Top" Width="164" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="25,28,0,0" Name="tbxFadeTime" VerticalAlignment="Top" Width="120" />
+        <Label Content="Result:" Height="28" HorizontalAlignment="Left" Margin="47,61,0,0" Name="label1" VerticalAlignment="Top" />
+        <Button Content="Clear HTP" Height="33" HorizontalAlignment="Left" Margin="300,22,0,0" Name="btnClearHTP" VerticalAlignment="Top" Width="85" Click="btnClearHTP_Click" />
+    </Grid>
+</Window>
