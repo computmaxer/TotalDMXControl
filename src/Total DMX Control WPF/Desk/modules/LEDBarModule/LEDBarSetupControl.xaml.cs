@@ -9,16 +9,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Total_DMX_Control_WPF.Views
+namespace Total_DMX_Control_WPF.Desk.modules.LEDBarModule
 {
     /// <summary>
-    /// Interaction logic for TheDesk.xaml
+    /// Interaction logic for LEDBarSetupControl.xaml
     /// </summary>
-    public partial class TheDesk : Window
+    public partial class LEDBarSetupControl : UserControl
     {
-        public TheDesk()
+        public LEDBarSetupControl()
         {
             InitializeComponent();
         }
