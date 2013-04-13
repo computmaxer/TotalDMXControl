@@ -149,11 +149,20 @@ namespace Total_DMX_Control_WPF
         {
             if (lbxPresets.SelectedIndex != -1)
             {
-                DeactivateCurrentPreset();
+                foreach (AttributePreset preset in Controller.AttributePresets)
+                {
+                    if(lbxPresets.SelectedItems.Contains(preset)) 
+                    {
+                        ActivateCurrentPreset(preset);
+                    }
+                    else
+                    {
+                        DeactivateCurrentPreset(preset);
+                    }
+                }
+                
                 _preset = (AttributePreset)lbxPresets.SelectedItem;
                 lbxAttributeSettings.ItemsSource = _preset.AttributePointSettings;
-
-                ActivateCurrentPreset();
 
                 //Change save button into "new"
                 btnSavePreset.Content = "New Preset";
@@ -162,7 +171,8 @@ namespace Total_DMX_Control_WPF
             }
         }
 
-        public void DeactivateCurrentPreset()
+        //TODO: Change name to DeactivatePreset ?
+        public void DeactivateCurrentPreset(AttributePreset preset)
         {
             foreach (FixtureWrapperFAOverride fixtureWrapper in _fixtureWrappers)
             {
@@ -175,7 +185,8 @@ namespace Total_DMX_Control_WPF
             }
         }
 
-        public void ActivateCurrentPreset()
+        // TODO: Change name to ActivatePreset ?
+        public void ActivateCurrentPreset(AttributePreset preset)
         {
             if (_active)
             {
@@ -183,7 +194,7 @@ namespace Total_DMX_Control_WPF
                 {
                     if (fixtureWrapper.IsAffected)
                     {
-                        foreach (AttributePresetSetting setting in _preset.AttributePointSettings)
+                        foreach (AttributePresetSetting setting in preset.AttributePointSettings)
                         {
                             if (setting.Active)
                             {
@@ -214,14 +225,20 @@ namespace Total_DMX_Control_WPF
             {
                 _active = false;
                 btnActive.Content = "INACTIVE";
-                DeactivateCurrentPreset();
+                foreach (AttributePreset preset in Controller.AttributePresets)
+                {
+                    DeactivateCurrentPreset(preset);
+                }
             }
             else
             {
                 //set active
                 _active = true;
                 btnActive.Content = "ACTIVE!";
-                ActivateCurrentPreset();
+                foreach (AttributePreset preset in Controller.AttributePresets)
+                {
+                    ActivateCurrentPreset(preset);
+                }
             }
             
         }
@@ -234,23 +251,23 @@ namespace Total_DMX_Control_WPF
                 AttributePreset preset = (AttributePreset)img.DataContext;
                 AttributePreset temp = _preset;
                 _preset = preset;
-                DeactivateCurrentPreset();
+                DeactivateCurrentPreset(_preset);
                 Controller.AttributePresets.Remove(preset);
                 _preset = temp;
-                ActivateCurrentPreset();
+                ActivateCurrentPreset(_preset);
             }
         }
 
         private void PulsePresetDown()
         {
             _active = true;
-            ActivateCurrentPreset();
+            ActivateCurrentPreset(_preset);
         }
 
         private void PulsePresetUp()
         {
             _active = false;
-            DeactivateCurrentPreset();
+            DeactivateCurrentPreset(_preset);
         }
 
         private void btnPulse_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

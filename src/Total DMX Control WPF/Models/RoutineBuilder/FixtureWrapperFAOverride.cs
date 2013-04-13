@@ -25,14 +25,14 @@ namespace Total_DMX_Control_WPF
             get { return _isAffected; }
             set { 
                 _isAffected = value;
-                if (!_isAffected)
-                {
-                    ((RoutinePlayerWindow)WindowManager.CurrentViews[typeof(RoutinePlayerWindow)]).DeactivateCurrentPreset();
-                }
-                else
-                {
-                    ((RoutinePlayerWindow)WindowManager.CurrentViews[typeof(RoutinePlayerWindow)]).ActivateCurrentPreset();
-                }
+                //if (!_isAffected)
+                //{
+                //    ((RoutinePlayerWindow)WindowManager.CurrentViews[typeof(RoutinePlayerWindow)]).DeactivateCurrentPreset();
+                //}
+                //else
+                //{
+                //    ((RoutinePlayerWindow)WindowManager.CurrentViews[typeof(RoutinePlayerWindow)]).ActivateCurrentPreset();
+                //}
             }
         }
 

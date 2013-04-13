@@ -121,7 +121,7 @@ namespace Total_DMX_Control_WPF
             //speed +4
             AddAttribute(new FixtureAttribute(ATTRIBUTE_TYPE.COLOR, "Color Wheel", false, startChannel + 5, this));
             AddAttribute(new FixtureAttribute(ATTRIBUTE_TYPE.GOBO_WHEEL, "Fixed Gobo Wheel", false, startChannel + 6, this));
-            AddAttribute(new FixtureAttribute(ATTRIBUTE_TYPE.GOBO_WHEEL, "Rotating Gobo Wheel", false, startChannel + 7, this));
+            AddAttribute(new FixtureAttribute(ATTRIBUTE_TYPE.ROTATING_GOBO_WHEEL, "Rotating Gobo Wheel", false, startChannel + 7, this));
             AddAttribute(new FixtureAttribute(ATTRIBUTE_TYPE.GOBO_ROTATION, "Gobo Rotation", false, startChannel + 8, this));
             AddAttribute(new FixtureAttribute(ATTRIBUTE_TYPE.PRISM, "Prism", false, startChannel + 9, this));
             AddAttribute(new FixtureAttribute(ATTRIBUTE_TYPE.FOCUS, "Focus", false, startChannel + 10, this));

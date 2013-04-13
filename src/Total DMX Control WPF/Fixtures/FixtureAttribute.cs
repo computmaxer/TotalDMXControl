@@ -197,6 +197,7 @@ namespace Total_DMX_Control_WPF
         TILT_FINE,
         COLOR,
         GOBO_WHEEL,
+        ROTATING_GOBO_WHEEL,
         GOBO_ROTATION,
         INTENSITY,
         LAMP,

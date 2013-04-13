@@ -33,7 +33,7 @@
                     <ColumnDefinition Width="6" />
                     <ColumnDefinition Width="168" />
                 </Grid.ColumnDefinitions>
-                <ListBox Height="163" HorizontalAlignment="Left" Margin="7,18,0,0" Name="lbxPresets" VerticalAlignment="Top" Width="265" SelectionChanged="lbxPresets_SelectionChanged">
+                <ListBox Height="163" HorizontalAlignment="Left" Margin="7,18,0,0" Name="lbxPresets" VerticalAlignment="Top" Width="265" SelectionChanged="lbxPresets_SelectionChanged" SelectionMode="Multiple">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
@@ -61,7 +61,7 @@
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Height="25">
                                 <CheckBox IsChecked="{Binding Path=Active, Mode=TwoWay}" Height="19" Width="15" VerticalAlignment="Center" Margin="8,6,0,0" />
-                                <TextBlock Text="{Binding Type}" VerticalAlignment="Center" Height="20" Width="115" Margin="8,4,0,0" TextWrapping="Wrap" />
+                                <TextBlock Text="{Binding Type}" VerticalAlignment="Center" Height="20" Width="140" Margin="8,4,0,0" TextWrapping="Wrap" />
                                 <xctk:IntegerUpDown Value="{Binding Value, Mode=TwoWay}" Height="20" Width="45" VerticalAlignment="Center" Margin="8,0,0,0" FormatString="N0" Increment="1" Maximum="255" Minimum="0" />
                             </StackPanel>
                         </DataTemplate>

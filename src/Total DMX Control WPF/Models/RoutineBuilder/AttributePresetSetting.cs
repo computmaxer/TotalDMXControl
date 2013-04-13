@@ -36,7 +36,8 @@ namespace Total_DMX_Control_WPF
                 _value = value;
                 if (WindowManager.CurrentViews.Contains(typeof(RoutinePlayerWindow)))
                 {
-                    ((RoutinePlayerWindow)WindowManager.CurrentViews[typeof(RoutinePlayerWindow)]).ActivateCurrentPreset();
+                    ((RoutinePlayerWindow)WindowManager.CurrentViews[typeof(RoutinePlayerWindow)]).ActivateCurrentPreset(
+                        ((RoutinePlayerWindow)WindowManager.CurrentViews[typeof(RoutinePlayerWindow)]).CurrentPreset);
                 }
             }
         }
