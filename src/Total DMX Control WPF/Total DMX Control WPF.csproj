@@ -70,6 +70,23 @@
     </ApplicationDefinition>
     <Compile Include="BigPhoton.cs" />
     <Compile Include="Config.cs" />
+    <Compile Include="Desk\Desk.xaml.cs">
+      <DependentUpon>Desk.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Desk\modules\LEDModule\LEDModuleController.cs" />
+    <Compile Include="Desk\modules\LEDModule\LEDPlaybackControl.xaml.cs">
+      <DependentUpon>LEDPlaybackControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Desk\modules\LEDModule\LEDSetupControl.xaml.cs">
+      <DependentUpon>LEDSetupControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Desk\modules\ModuleController.cs" />
+    <Compile Include="Desk\modules\ModulePlaybackControl.xaml.cs">
+      <DependentUpon>ModulePlaybackControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Desk\modules\ModuleSetupControl.xaml.cs">
+      <DependentUpon>ModuleSetupControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Fixtures\LedBackdropFixture.cs" />
     <Compile Include="Models\RoutineBuilder\AttributePreset.cs" />
     <Compile Include="Models\RoutineBuilder\AttributePresetSetting.cs" />
@@ -138,9 +155,6 @@
     <Compile Include="Views\RoutineBuilder.xaml.cs">
       <DependentUpon>RoutineBuilder.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TheDesk.xaml.cs">
-      <DependentUpon>TheDesk.xaml</DependentUpon>
-    </Compile>
     <Compile Include="WindowManager.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -156,6 +170,26 @@
     <Compile Include="IChannelDisplayer.cs" />
     <Compile Include="LevelAction.cs" />
     <Compile Include="LightingSystemConfiguration.cs" />
+    <Page Include="Desk\Desk.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Desk\modules\LEDModule\LEDPlaybackControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Desk\modules\LEDModule\LEDSetupControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Desk\modules\ModulePlaybackControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Desk\modules\ModuleSetupControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DoubleBumpButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,10 +235,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\RoutineBuilder.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\TheDesk.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Controls;
 
-namespace Total_DMX_Control_WPF.Desk.modules
+namespace Total_DMX_Control_WPF.Desk.modules.LEDBarModule
 {
-    class ModuleController
+    class LEDModuleController : ModuleController
     {
         #region Data Members
-        private UserControl _playbackControl;
-        private UserControl _setupControl;
+
         #endregion
 
         #region Properties

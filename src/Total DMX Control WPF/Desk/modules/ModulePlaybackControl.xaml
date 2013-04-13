@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Total_DMX_Control_WPF.Desk.modules.LEDBarModule.LEDBarSetupControl"
+﻿<UserControl x:Class="Total_DMX_Control_WPF.Desk.modules.ModulePlaybackControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

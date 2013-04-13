@@ -12,16 +12,29 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Total_DMX_Control_WPF.Desk.modules.LEDBarModule
+namespace Total_DMX_Control_WPF.Desk.modules
 {
     /// <summary>
-    /// Interaction logic for LEDBarSetupControl.xaml
+    /// Interaction logic for ModulePlaybackControl.xaml
     /// </summary>
-    public partial class LEDBarSetupControl : UserControl
+    public partial class ModulePlaybackControl : UserControl
     {
-        public LEDBarSetupControl()
+        #region Data Members
+        private ModuleController _controller;
+
+        #endregion
+
+        #region Properties
+
+        #endregion
+
+        #region Methods
+
+        public ModulePlaybackControl()
         {
             InitializeComponent();
         }
+
+        #endregion
     }
 }
